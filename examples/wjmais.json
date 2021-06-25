@@ -1,0 +1,154 @@
+{
+  "all": {
+    "removeFlags": [
+      "plutonium",
+      "srd5e"
+    ],
+    "regexes": [
+      {"regex": "<a href=\"https:\/\/5e\\.tools[^>]+>([^>]+)<\/a>", "global": true, "string": "<em>$&<\/em>", "_comment": "links -> <em>"},
+      {"regex": "<span class=\"help help--hover\">([^>]+)<\/span>", "global": true, "string": "<em>$&<\/em>", "_comment": "help--hover -> <em>"},
+      {"regex": "<span class=\"bold\"[^>]+>([^>]+)<\/span>", "global": true, "string": "<strong>$&</strong>", "_comment": "bold -> <strong>"},
+      {"regex": "(<span class=\"rd__h rd__h--1\"[^>]+> <span class=\"entry-title-inner\">)([^>]+)(<\/span><\/span>)", "global": true, "string": "<h1>$2<\/h2>"},
+      {"regex": "(<span class=\"rd__h rd__h--2\"[^>]+> <span class=\"entry-title-inner\">)([^>]+)(<\/span><\/span>)", "global": true, "string": "<h2>$2<\/h3>"},
+      {"regex": "(<span class=\"rd__h rd__h--3\"[^>]+> <span class=\"entry-title-inner\">)([^>]+)(<\/span><\/span> <p>)", "global": true, "string": "<p><strong>$2<\/strong> "},
+      {"regex": "(<span([^>]+)>|<\/span>| class=([^>]+)|<div([^>]+)>|<\/div>|<div>|<a([^>]+)>|<\/a>)", "global": true, "string": "", "_comment": "remove remaining tags"}
+    ]
+  },
+  "consumable": {
+    "icons": [
+      {"name": "Ballista Bolt", "img": "icons/weapons/ammunition/arrow-head-war-flight.webp"},
+      {"name": "Ballista Bolts (20)", "img": "icons/weapons/ammunition/arrows-war-red.webp"},
+      {"name": "Cannonball", "img": "icons/weapons/ammunition/shot-round-lead.webp"},
+      {"name": "Cannonballs (20)", "img": "icons/weapons/ammunition/shot-round-lead.webp"},
+      {"name": "Catapult Stone", "img": "icons/commodities/stone/boulder-grey.webp"},
+      {"name": "Catapult Stones (20)", "img": "icons/commodities/stone/stone-pile-grey.webp"},
+      {"name": "Fire Projector Round", "img": "icons/magic/fire/projectile-arrow-fire-orange-yellow.webp"},
+      {"name": "Fire Projector Cartridge", "img": "icons/magic/fire/projectile-arrow-fire-orange-yellow.webp"},
+      {"name": "Matick's Cannon Pellet", "img": "icons/commodities/stone/paver-gravel-grey.webp"},
+      {"name": "Matick's Cannon Pellets (20)", "img": "icons/commodities/stone/paver-gravel-grey.webp"}
+    ]
+  },
+  "equipment": {
+    "icons": [
+      {"name": "Artifurnace", "img": "icons/tools/smithing/furnace-fire-metal-orange.webp"},
+      {"name": "Crown of Stars", "img": "icons/magic/control/control-influence-crown-gold.webp"},
+      {"name": "Death Helm", "img": "icons/magic/movement/trail-streak-zigzag-teal.webp"},
+      {"name": "Furnace Helm (Major)", "img": "icons/tools/smithing/furnace-fire-metal-orange.webp"},
+      {"name": "Furnace Helm (Minor)", "img": "icons/tools/smithing/furnace-fire-metal-orange.webp"},
+      {"name": "Series Helm", "img": "icons/magic/movement/trail-streak-zigzag-teal.webp"},
+      {"name": "Wildjammer Helm (Major)", "img": "icons/magic/movement/trail-streak-zigzag-teal.webp"},
+      {"name": "Wildjammer Helm (Minor)", "img": "icons/magic/movement/trail-streak-zigzag-teal.webp"},
+
+      {"name": "Altar", "img": "icons/magic/holy/prayer-hands-glowing-yellow-green.webp"},
+      {"name": "Anchor", "img": "icons/tools/nautical/anchor-blue.webp"},
+      {"name": "Arcane Cannon", "img": "icons/commodities/tech/tube-chamber-lightning.webp"},
+      {"name": "Astrolabe", "img": "icons/skills/trades/academics-astronomy-navigation-purple.webp"},
+      {"name": "Brig", "img": "icons/environment/traps/cage-grey-steel.webp"},
+      {"name": "Fighter Bay", "img": "icons/magic/movement/chevrons-down-yellow.webp"},
+      {"name": "Lifeboats", "img": "icons/magic/life/heart-glowing-red.webp"},
+      {"name": "Passage Device", "img": "icons/magic/movement/portal-vortex-orange.webp"},
+      {"name": "Plane Shift Drive", "img": "icons/magic/movement/abstract-ribbons-red-orange.webp"},
+      {"name": "Portal Locator", "img": "icons/magic/perception/orb-crystal-ball-scrying-blue.webp"},
+      {"name": "Sickbay", "img": "icons/magic/life/cross-embers-glow-yellow-purple.webp"},
+      {"name": "Workshop", "img": "icons/skills/trades/construction-carpentry-hammer.webp"},
+
+      {"name": "Aethersails", "img": "icons/magic/air/wind-weather-sailing-ship.webp"},
+      {"name": "Arcane Weaponry", "img": "icons/magic/symbols/chevron-elipse-circle-blue.webp"},
+      {"name": "Assault Port", "img": "icons/magic/symbols/cog-shield-white-blue.webp"},
+      {"name": "Enhanced Weapon", "img": "icons/skills/ranged/arrows-flying-salvo-blue-light.webp"},
+      {"name": "Gunpowder Station", "img": "icons/containers/ammunition/shot-barrel.webp"},
+      {"name": "Helm Link", "img": "icons/magic/movement/trail-streak-pink.webp"},
+      {"name": "Reinforced Bulwark", "img": "icons/skills/trades/textiles-stitching-leather-brown.webp"},
+      {"name": "Reinforced Component", "img": "icons/commodities/wood/framing-reinforced-brown.webp"},
+      {"name": "Reinforced Hull", "img": "icons/commodities/metal/mail-chain-steel.webp"},
+      {"name": "Thickened Hull", "img": "icons/commodities/materials/material-woven.webp"},
+      {"name": "Turreted Hardpoint", "img": "icons/magic/time/arrows-circling-green.webp"}
+    ]
+  },
+  "feat": {
+    "defaultIcon": "icons/skills/trades/profession-sailing-ship.webp"
+  },
+  "spell": {
+    "defaultIcon": "icons/sundries/books/book-embossed-jewel-gold-purple.webp",
+    "icons": [
+      {"name": "Aether Cloud", "img": "icons/magic/air/air-wave-gust-blue.webp"},
+      {"name": "Airsphere", "img": "icons/magic/air/air-pressure-shield-blue.webp"},
+      {"name": "Anchor Helm", "img": "icons/tools/nautical/anchor.webp"},
+      {"name": "Automatic Helm", "img": "icons/tools/navigation/map-marked-green.webp"},
+      {"name": "Black Hole", "img": "icons/magic/unholy/orb-glowing-purple.webp"},
+      {"name": "Blurry", "img": "icons/magic/control/hypnosis-mesmerism-eye.webp"},
+      {"name": "Chill Fire", "img": "icons/magic/water/orb-ice-web.webp"},
+      {"name": "Collapse Portal", "img": "icons/magic/control/debuff-chains-orb-movement-blue.webp"},
+      {"name": "Contact Home Power", "img": "icons/magic/holy/prayer-hands-glowing-yellow.webp"},
+      {"name": "Create Air", "img": "icons/magic/air/air-smoke-casting.webp"},
+      {"name": "Create Minor Helm", "img": "icons/magic/movement/trail-streak-zigzag-teal.webp"},
+      {"name": "Create Portal", "img": "icons/magic/movement/portal-vortex-orange.webp"},
+      {"name": "Detect Powers", "img": "icons/magic/holy/prayer-hands-glowing-yellow.webp"},
+      {"name": "Distress Beacon", "img": "icons/magic/sonic/explosion-shock-sound-wave.webp"},
+      {"name": "Enhance/Reduce Maneuverability", "img": "icons/magic/movement/abstract-ribbons-red-orange.webp"},
+      {"name": "Hold Helm", "img": "icons/magic/control/sihouette-hold-beam-green.webp"},
+      {"name": "Hold Mega Creature", "img": "icons/magic/control/debuff-chains-shackles-movement-blue.webp"},
+      {"name": "Jettison", "img": "icons/magic/earth/projectiles-stone-salvo.webp"},
+      {"name": "Locate Helm", "img": "icons/magic/perception/orb-crystal-ball-scrying.webp"},
+      {"name": "Locate Portal", "img": "icons/magic/perception/orb-crystal-ball-scrying-blue.webp"},
+      {"name": "Locate World", "img": "icons/magic/perception/orb-eye-scrying.webp"},
+      {"name": "Melf's Meteors", "img": "icons/magic/earth/projectiles-fire-stone-salvo.webp"},
+      {"name": "Repair Hull", "img": "icons/skills/trades/construction-carpentry-hammer.webp"},
+      {"name": "Softwood", "img": "icons/magic/control/encase-creature-humanoid-hold.webp"},
+      {"name": "Stable Gravity", "img": "icons/magic/control/orb-web-hold.webp"},
+      {"name": "Turbulent Aether", "img": "icons/magic/air/wind-tornado-wall-blue.webp"}
+    ]
+  },
+  "weapon": {
+    "defaultIcon": "icons/skills/melee/weapons-crossed-swords-yellow.webp",
+    "icons": [
+      {"name": "12-Pounder Long Gun", "img": "icons/weapons/artillery/cannon-engraved.webp"},
+      {"name": "24-Pounder Long Gun", "img": "icons/weapons/artillery/cannon-banded.webp"},
+      {"name": "36-Pounder Long Gun", "img": "icons/weapons/artillery/cannon-engraved-gold.webp"},
+      {"name": "Carronade", "img": "icons/weapons/artillery/cannon-simple.webp"},
+      {"name": "Fire Projector", "img": "icons/skills/ranged/cannon-barrel-firing-yellow.webp"},
+      {"name": "Grappling Ballista", "img": "icons/weapons/artillery/ballista-wood-green.webp"},
+      {"name": "Grasping Tentacles", "img": "icons/commodities/biological/tentacle-purple-white.webp"},
+      {"name": "Heavy Ballista", "img": "icons/weapons/artillery/ballista-wood-green.webp"},
+      {"name": "Heavy Catapult", "img": "icons/weapons/artillery/catapult-simple.webp"},
+      {"name": "Heavy Dual Ballista", "img": "icons/weapons/artillery/ballista-wood-green.webp"},
+      {"name": "Light Ballista", "img": "icons/weapons/artillery/ballista-wood-green.webp"},
+      {"name": "Light Catapult", "img": "icons/weapons/artillery/catapult-simple.webp"},
+      {"name": "Light Dual Ballista", "img": "icons/weapons/artillery/ballista-wood-green.webp"},
+      {"name": "Matick's Cannon", "img": "icons/skills/ranged/arrows-flying-salvo-yellow.webp"},
+      {"name": "Medium Ballista", "img": "icons/weapons/artillery/ballista-wood-green.webp"},
+      {"name": "Medium Catapult", "img": "icons/weapons/artillery/catapult-simple.webp"},
+      {"name": "Medium Dual Ballista", "img": "icons/weapons/artillery/ballista-wood-green.webp"},
+      {"name": "Piercing Appendages", "img": "icons/commodities/biological/tentacle-thorned-green.webp"},
+
+      {"name": "Blunderbuss", "img": "icons/weapons/guns/gun-blunderbuss-steel.webp"},
+      {"name": "Boarding Axe", "img": "icons/weapons/axes/axe-crooked-blackened.webp"},
+      {"name": "Boarding Pike", "img": "icons/weapons/polearms/pike-flared-brown.webp"},
+      {"name": "Dragon", "img": "icons/weapons/guns/gun-blunderbuss-bronze.webp"},
+      {"name": "Musketoon", "img": "icons/weapons/guns/gun-brown.webp"},
+      {"name": "Flintlock Pistol", "img": "icons/weapons/guns/gun-pistol-flintlock-metal.webp"},
+      {"name": "Pocket Pistol", "img": "icons/weapons/guns/gun-pistol-flintlock.webp"}
+    ]
+  },
+  "vehicle": {
+    "addItem": [
+      { "actorName": "Nautiloid", "itemName": "Grasping Tentacles", "itemType": "weapon",
+        "data": [{"prop": "flags.wjmais.facing", "value": 90}, {"prop": "flags.wjmais.location", "value": "forward"}] },
+      { "actorName": "Mindspider", "itemName": "Piercing Appendages", "itemType": "weapon",
+        "data": [{"prop": "flags.wjmais.facing", "value": 90}, {"prop": "flags.wjmais.location", "value": "forward"}] },
+      { "actorName": "Deathspider", "itemName": "Piercing Appendages", "itemType": "weapon",
+        "data": [{"prop": "flags.wjmais.facing", "value": 90}, {"prop": "flags.wjmais.location", "value": "forward"}] }
+    ],
+    "removeAllItems": [
+      "Attributes"
+    ],
+    "art": {
+      "regex": "https:\/\/raw\\.githubusercontent\\.com\/TheGiddyLimit\/homebrew\/master\/_img\/WJMAiS\/([^>]+)",
+      "string": "modules\/wjmais\/assets\/$1"
+    },
+    "token": {
+      "regex": "https:\/\/raw\\.githubusercontent\\.com\/TheGiddyLimit\/homebrew\/master\/_img\/WJMAiS\/([^>]+)",
+      "string": "modules\/wjmais\/assets\/$1"
+    }
+  }
+}
