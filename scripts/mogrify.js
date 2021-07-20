@@ -25,12 +25,11 @@ function doItemsAdd(actor) {
     const type = CONFIG.JANITOR.mogrifyData[actor.type];
     if (type?.addItem) {
       type.addItem.forEach(e => {
-        if (e.actorName === actor.name) {
+        if (e.actorNames.includes(actor.name)) {
           const item = game.items.find(i => i.name === e.itemName && i.type === e.itemType);
           if (item) {
             const itemData = item.toObject();
             e.data.forEach(p => foundry.utils.setProperty(itemData, p.prop, p.value));
-            console.log(itemData);
             Item.create(itemData, {parent: actor});
           }
         }
@@ -89,6 +88,17 @@ function removeEntityFlags(entity) {
   }
 }
 
+async function updateItemData(item) {
+  if (!CONFIG.JANITOR.mogrifyData[item.type])
+    return;
+  const type = CONFIG.JANITOR.mogrifyData[item.type];
+
+  const data = type.data?.find(entry => entry.name === item.name);
+  if (data) {
+    item.update({[`${data.prop}`]: data.value});
+  }
+}
+
 async function updateItemIcon(item) {
   if (!CONFIG.JANITOR.mogrifyData[item.type])
     return;
@@ -122,6 +132,7 @@ function processItem(item) {
   let desc = item.data.data.description.value;
 
   removeEntityFlags(item);
+  updateItemData(item);
   updateItemIcon(item);
   desc = doEntityRegexes(item, desc);
 
