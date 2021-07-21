@@ -190,10 +190,24 @@
         "data": [{"prop": "flags.wjmais.facing", "value": 90}, {"prop": "flags.wjmais.location", "value": "forward"}] },
       { "actorNames": ["Mindspider", "Deathspider"],
         "itemName": "Piercing Appendages", "itemType": "weapon",
-        "data": [{"prop": "flags.wjmais.facing", "value": 90}, {"prop": "flags.wjmais.location", "value": "forward"}] }
+        "data": [{"prop": "flags.wjmais.facing", "value": 90}, {"prop": "flags.wjmais.location", "value": "forward"}] },
+      { "actorNames": ["Dragonship"],
+        "itemName": "Dragon Figurehead", "itemType": "equipment"},
+      { "actorNames": ["Tradesman"],
+        "itemName": "Couatl Figurehead", "itemType": "equipment"},
+      { "actorNames": ["Clipper", "Tsunami"],
+        "itemName": "Displacer Beast Figurehead", "itemType": "equipment"}
     ],
     "removeAllItems": [
-      "Attributes"
+      "Attributes",
+      "Fighter Ram",
+      "Grasping Tentacles",
+      "Piercing Appendages",
+      "Ram",
+      "Whale Ram",
+      "Couatl Figurehead",
+      "Displacer Beast Figurehead",
+      "Dragon Figurehead"
     ],
     "art": {
       "regex": "https:\/\/raw\\.githubusercontent\\.com\/TheGiddyLimit\/homebrew\/master\/_img\/WJMAiS\/([^>]+)",
