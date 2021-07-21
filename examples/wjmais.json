@@ -6,6 +6,8 @@
     ],
     "regexes": [
       {"regex": "<a href=\"https:\/\/5e\\.tools[^>]+>([^>]+)<\/a>", "global": true, "string": "<em>$&<\/em>", "_comment": "links -> <em>"},
+      {"regex": "@([^\\[]+)\\[([^|]+)\\|.*\\]", "global": true, "string": "<em>$2<\/em>", "_comment": "@tag|source -> <em>"},
+      {"regex": "@([^\\[]+)\\[([^\\]]+)\\]", "global": true, "string": "<em>$2<\/em>", "_comment": "@tag -> <em>"},
       {"regex": "<span class=\"help help--hover\">([^>]+)<\/span>", "global": true, "string": "<em>$&<\/em>", "_comment": "help--hover -> <em>"},
       {"regex": "<span class=\"bold\"[^>]+>([^>]+)<\/span>", "global": true, "string": "<strong>$&</strong>", "_comment": "bold -> <strong>"},
       {"regex": "(<span class=\"rd__h rd__h--1\"[^>]+> <span class=\"entry-title-inner\">)([^>]+)(<\/span><\/span>)", "global": true, "string": "<h1>$2<\/h2>"},
