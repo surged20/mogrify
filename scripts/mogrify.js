@@ -29,7 +29,8 @@ function doItemsAdd(actor) {
           const item = game.items.find(i => i.name === e.itemName && i.type === e.itemType);
           if (item) {
             const itemData = item.toObject();
-            e.data.forEach(p => foundry.utils.setProperty(itemData, p.prop, p.value));
+            if (e?.data)
+              e.data.forEach(p => foundry.utils.setProperty(itemData, p.prop, p.value));
             Item.create(itemData, {parent: actor});
           }
         }
@@ -164,6 +165,15 @@ function processActor(actor) {
   });
 }
 
+function processJournal(journal) {
+  let content = journal.data.content;
+
+  content = doEntityRegexes(journal, content);
+  console.log(content);
+
+  journal.update({"content": content});
+}
+
 function processItemFolder(folder) {
   folder.children.forEach(folder => processItemFolder(folder));
   folder.content.forEach(item => processItem(item));
@@ -172,6 +182,11 @@ function processItemFolder(folder) {
 function processActorFolder(folder) {
   folder.children.forEach(folder => processActorFolder(folder));
   folder.content.forEach(actor => processActor(actor));
+};
+
+function processJournalFolder(folder) {
+  folder.children.forEach(folder => processJournalFolder(folder));
+  folder.content.forEach(journal => processJournal(journal));
 };
 
 Hooks.on("init", function() {
@@ -245,6 +260,37 @@ Hooks.on("init", function() {
           if (!result) return;
           const actor = game.actors.get(target.attr('data-entity-id'));
           processActor(actor);
+        }
+      })
+  });
+
+  Hooks.on("getJournalDirectoryFolderContext", async (html, options) => {
+    options.push( 
+      {
+        name : "Mogrify Folder",
+        condition: true,
+        icon: '<i class="fa fa-broom"></i>',
+        callback: async header => {
+          const result = await loadMogrifyData(game.settings.get('mogrify', 'mogrifyDataFile'));
+          if (!result) return;
+          const li = header.parent();                                                                            
+          const folder = game.folders.get(li.data("folderId"));
+          processJournalFolder(folder);
+        }
+      })
+  });
+
+  Hooks.on("getJournalDirectoryEntryContext", async (html, options) => {
+    options.push( 
+      {
+        name : "Mogrify",
+        condition: true,
+        icon: '<i class="fa fa-broom"></i>',
+        callback: async target => {
+          const result = await loadMogrifyData(game.settings.get('mogrify', 'mogrifyDataFile'));
+          if (!result) return;
+          const journal = game.journal.get(target.attr('data-entity-id'));
+          processJournal(journal);
         }
       })
   });
