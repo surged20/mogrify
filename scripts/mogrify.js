@@ -93,7 +93,7 @@ function removeEntityFlags(entity) {
   if (CONFIG.JANITOR.mogrifyData["all"]) {
     const typeData = CONFIG.JANITOR.mogrifyData["all"];
     if (typeData?.removeFlags)
-      typeData.removeFlags.forEach(scope => entity.update({ [`flags.-=${scope}`] : null }));
+      typeData.removeFlags.forEach(async scope => await entity.update({ [`flags.-=${scope}`] : null }));
   }
 }
 
@@ -105,7 +105,7 @@ async function updateActorData(actor) {
   if (type?.data) {
     type.data.forEach(e => {
       if (e.actorNames.includes(actor.name)) {
-        e.data.forEach(p => actor.update({[`${p.prop}`]: p.value}));
+        e.data.forEach(async p => await actor.update({[`${p.prop}`]: p.value}));
       }
     });
   }
@@ -118,7 +118,7 @@ async function updateItemData(item) {
 
   const data = type.data?.find(entry => entry.name === item.name);
   if (data) {
-    item.update({[`${data.prop}`]: data.value});
+    await item.update({[`${data.prop}`]: data.value});
   }
 }
 
@@ -134,7 +134,7 @@ async function updateItemIcon(item) {
     img = match.img;
 
   if (img)
-    item.update({"img": img});
+    await item.update({"img": img});
 }
 
 async function loadMogrifyData(filePath) {
@@ -151,7 +151,7 @@ async function loadMogrifyData(filePath) {
     });
 }
 
-function processItem(item) {
+async function processItem(item) {
   let desc = item.data.data.description.value;
 
   removeEntityFlags(item);
@@ -159,10 +159,10 @@ function processItem(item) {
   updateItemIcon(item);
   desc = doEntityRegexes(item, desc);
 
-  item.update({"data.description.value": desc});
+  await item.update({"data.description.value": desc});
 }
 
-function processActor(actor) {
+async function processActor(actor) {
 
   removeEntityFlags(actor);
   updateActorData(actor);
@@ -181,7 +181,7 @@ function processActor(actor) {
   tokenImg = doActorToken(actor, tokenImg);
   desc = doEntityRegexes(actor, desc);
 
-  actor.update({
+  await actor.update({
     "data.details.biography.value": desc,
     "img": artImg,
     "token.img": tokenImg
